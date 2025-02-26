@@ -8,7 +8,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:8000/create-bucket/', {
+      const response = await axios.post('http://127.0.0.1:8000/bucket', {
         bucket_name: bucketName,
       });
       setMessage(response.data.message);

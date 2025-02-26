@@ -34,7 +34,7 @@ app.add_middleware(
 class BucketRequest(BaseModel):
     bucket_name: str
 
-@app.post("/create-bucket/")
+@app.post("/bucket")
 def create_bucket(request: BucketRequest):
     """
     Creates an S3 bucket via FastAPI POST request.
@@ -48,6 +48,7 @@ def create_bucket(request: BucketRequest):
         raise HTTPException(status_code=500, detail="AWS_REGION is not set in the environment variables.")
 
     try:
+        print(AWS_ACCESS_KEY)
         # Configure the S3 client
         if AWS_REGION == "us-east-1":
             print("EXecute it")
